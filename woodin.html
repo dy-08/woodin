@@ -4,6 +4,199 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>우딘</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+      /* reset */
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-sizing: border-box;
+
+        /* google Font */
+        font-family: 'Noto Sans KR', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+      }
+
+      a {
+        text-decoration: none;
+        color: rgb(85, 85, 85);
+      }
+      a:hover {
+        color: rgb(44, 129, 70);
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* colors */
+      body {
+        color: rgb(85, 85, 85);
+      }
+
+      /* common */
+      .inner {
+        width: calc(100vw - 80px);
+        height: calc(91.5vh - 40px);
+        margin: 0 auto;
+        display: flex;
+        height: 100%;
+      }
+
+      /* section z–index ( 1~10 ) */
+      .wrap {
+        width: calc(100vw - 80px);
+        height: calc(91.5vh - 40px);
+        background-color: rgb(70, 70, 221);
+        margin: 0 auto;
+        position: relative;
+        top: 82px;
+        border-radius: 10px;
+      }
+
+      /* header */
+      /* z–index ( 999 ) */
+      header {
+        width: 100%;
+        height: 82px;
+        position: fixed;
+        z-index: 999;
+        /* background-color: rgba(238, 185, 194, 0.753); */
+      }
+
+      .menu {
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin-bottom: 6px; /*?*/
+      }
+      .menu span {
+        display: block;
+        width: 5px;
+        height: 5px;
+        border: 1px solid black;
+        border-radius: 50%;
+        background-color: black;
+      }
+      .menu div {
+        display: flex;
+        gap: 10px;
+      }
+      .menu span:nth-child(1),
+      .menu span:nth-child(2) {
+        margin-bottom: 10px;
+      }
+
+      .header__logowrap {
+        width: 10%;
+        /* background-color: aquamarine; */
+      }
+      .header__naviwrap {
+        width: 80%;
+        /* background-color: rgba(137, 43, 226, 0.616); */
+      }
+      .header__iconswrap {
+        width: 10%;
+        /* background-color: rgba(165, 42, 42, 0.473); */
+      }
+
+      .header__logowrap a {
+        display: block;
+        width: 100%;
+        height: 82px;
+        line-height: 92px;
+      }
+      .header__logo {
+        margin-left: 10%;
+      }
+      .header__navis {
+        display: flex;
+        gap: 8%;
+        font-weight: bold;
+        align-items: center;
+        height: 82px;
+      }
+      .header__navis:nth-child(1) {
+        margin-left: 8%;
+      }
+      .header__iconswrap {
+        display: flex;
+        justify-content: flex-end;
+        gap: 14%;
+        align-items: center;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="inner">
+        <div class="header__logowrap">
+          <a href="#">
+            <img
+              class="header__logo"
+              src="./assets/images/common/logo.png"
+              alt="우딘 로고"
+            />
+          </a>
+        </div>
+        <div class="header__naviwrap">
+          <nav>
+            <ul class="header__navis">
+              <li><a href="#">WOODIN</a></li>
+              <li><a href="#">PRODUCTS</a></li>
+              <li><a href="#">SUPPORT</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header__iconswrap">
+          <a href="#">
+            <img
+              src="./assets/images/common/lang_icon.png"
+              alt="언어 아이콘사진"
+              class="header__icon"
+            />
+          </a>
+          <a href="#">
+            <img
+              src="./assets/images/common/search_icon.png"
+              alt="검색 아이콘사진"
+              class="header__icon"
+            />
+          </a>
+          <a class="header__icon menu" href="#">
+            <div>
+              <span></span>
+              <span></span>
+            </div>
+            <div>
+              <span></span>
+              <span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- <div>WOODIN</div>
+    <div>PRODUCTS</div>
+    <div>SUPPORT</div>
+    <div>LAGUAGE</div>
+    <div>SEARCH</div>
+    <div>MENU</div> -->
+    <section>
+      <div class="wrap"></div>
+    </section>
+    <section>2</section>
+    <section>3</section>
+    <section>4</section>
+    <section>5</section>
+    <section>6</section>
+    <section>7</section>
+    <section>8</section>
+    <footer></footer>
+  </body>
 </html>

@@ -133,6 +133,32 @@
         align-items: center;
       }
 
+      /* section 01 */
+      #section01 {
+        /* transform: scale(0); */
+        /* transition: transform 0.5s linear; */
+        width: 0;
+        transition: all 1s ease-in-out;
+        background: url(./assets/images/main/file1_16450763511qly671qvc.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #section01.active {
+        /* transform: scaleX(1); */
+        width: calc(100vw - 80px);
+      }
+
+      #section01 p {
+        color: #dddddd;
+        font-size: 60px;
+        font-weight: 100;
+      }
+
       /* footer */
       footer {
         width: 100%;
@@ -197,15 +223,18 @@
     <div>SEARCH</div>
     <div>MENU</div> -->
     <section>
-      <div class="wrap"></div>
+      <div id="section01" class="wrap">
+        <p>CREATING HEALING SPACE IS</p>
+        <p>WOODIN HAUS’S TOP PRIORITY.</p>
+      </div>
     </section>
-    <section><div id="section01" class="wrap"></div></section>
     <section><div id="section02" class="wrap"></div></section>
     <section><div id="section03" class="wrap"></div></section>
     <section><div id="section04" class="wrap"></div></section>
     <section><div id="section05" class="wrap"></div></section>
     <section><div id="section06" class="wrap"></div></section>
     <section><div id="section07" class="wrap"></div></section>
+    <section><div id="section08" class="wrap"></div></section>
     <footer></footer>
     <script src="./src/main.js"></script>
   </body>

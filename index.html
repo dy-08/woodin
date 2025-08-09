@@ -37,6 +37,7 @@
       /* colors */
       body {
         color: rgb(85, 85, 85);
+        background-color: #f3f3f3;
       }
 
       /* common */
@@ -133,7 +134,9 @@
         align-items: center;
       }
 
+      /* Sections */
       /* section 01 */
+      /* section z–index ( main:1, sub:10~19 ) */
       #section01 {
         /* transform: scale(0); */
         /* transition: transform 0.5s linear; */
@@ -157,6 +160,59 @@
         color: #dddddd;
         font-size: 60px;
         font-weight: 100;
+      }
+
+      /* section 02 */
+      /* section z–index ( main:2, sub:20~29 ) */
+      #section02 {
+        /* background-color: rgb(116, 204, 131); */
+        background-color: transparent;
+        display: flex;
+        justify-content: space-between;
+        z-index: 2;
+      }
+      #section02 .section02__item01 {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        z-index: 21;
+        background-color: transparent;
+        /* background-color: rgb(148, 148, 226); */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+      }
+      #section02 .section02__item02 {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        z-index: 22;
+        right: 0;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+      #section02 .section02__item01 div:nth-child(1) {
+        font-size: 18px;
+        font-weight: 500;
+      }
+      #section02 .section02__item01 div:nth-child(2) {
+        font-size: 60px;
+        font-weight: 100;
+        line-height: 70px;
+        color: #444;
+      }
+      #section02 .section02__item01 div:nth-child(3) span {
+        display: block;
+        width: 60px;
+        height: 1px;
+        background-color: rgb(85, 85, 85);
+      }
+      #section02 .section02__item01 div:nth-child(4) {
+        font-size: 17px;
+        color: #999;
       }
 
       /* footer */
@@ -222,13 +278,40 @@
     <div>LAGUAGE</div>
     <div>SEARCH</div>
     <div>MENU</div> -->
+    <!-- section–01 -->
     <section>
       <div id="section01" class="wrap">
         <p>CREATING HEALING SPACE IS</p>
         <p>WOODIN HAUS’S TOP PRIORITY.</p>
       </div>
     </section>
-    <section><div id="section02" class="wrap"></div></section>
+    <section>
+      <div id="section02" class="wrap">
+        <div class="section02__item01">
+          <div>
+            <p>BEST PRODUCT</p>
+          </div>
+          <div>
+            <p>ECO-FRIENDLY AND</p>
+            <p>HIGH-QUALITY</p>
+            <p>PRODUCTS</p>
+          </div>
+          <div>
+            <span></span>
+          </div>
+          <div>
+            <p>우딘 HAUS는 건강한 공간을 위한</p>
+            <p>최선의 선택을 합니다.</p>
+          </div>
+        </div>
+        <div class="section02__item02">
+          <img
+            src="./assets/images/main/file1_1644378955plisylqeof.jpg"
+            alt="중문 제네로시리즈 시공 이미지"
+          />
+        </div>
+      </div>
+    </section>
     <section><div id="section03" class="wrap"></div></section>
     <section><div id="section04" class="wrap"></div></section>
     <section><div id="section05" class="wrap"></div></section>

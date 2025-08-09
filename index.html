@@ -214,6 +214,82 @@
         font-size: 17px;
         color: #999;
       }
+      /* section 03 */
+      /* section z–index ( main:3, sub:30~39 ) */
+      #section03 {
+        background-color: transparent;
+        z-index: 3;
+      }
+      #section03 .section03__itembox {
+        width: 100%;
+        height: 100%;
+        padding-top: 82px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2%;
+      }
+      .section03__itembox .item {
+        height: 310px;
+        border-radius: 10px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        transition: all 0.5s linear;
+      }
+      .item:hover {
+        filter: brightness(90%);
+        background-size: 108%;
+      }
+      .section03__itembox a {
+        display: block;
+        width: 100%;
+        height: 310px;
+        line-height: 300px;
+        text-align: center;
+      }
+      .section03__itembox .door {
+        background-image: url(./assets/images/main/s3_door.jpg);
+      }
+      .section03__itembox .midDoor {
+        background-image: url(./assets/images/main/s3_mid-door.jpg);
+      }
+      .section03__itembox .sheet {
+        background-image: url(./assets/images/main/s3_sheet.jpg);
+      }
+      .section03__itembox .board {
+        background-image: url(./assets/images/main/s3_board.jpg);
+      }
+      .section03__itembox .windows {
+        background-image: url(./assets/images/main/s3_windows.jpg);
+      }
+      .section03__itembox .lumber {
+        background-image: url(./assets/images/main/s3_lumber.jpg);
+      }
+      .section03__itembox .category {
+        grid-column: span 2;
+        /* background-color: #999; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 14px;
+      }
+      .category div:nth-of-type(1) {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+      .category div:nth-of-type(2) {
+        font-size: 58px;
+        font-weight: 200;
+        line-height: 68px;
+        color: #444;
+      }
+      .category div:nth-of-type(3) {
+        font-size: 16px;
+        color: #999;
+      }
 
       /* footer */
       footer {
@@ -312,7 +388,69 @@
         </div>
       </div>
     </section>
-    <section><div id="section03" class="wrap"></div></section>
+    <section>
+      <div id="section03" class="wrap">
+        <div class="section03__itembox">
+          <div class="item door">
+            <a href="#">
+              <img
+                src="./assets/images/main/s3_icon_door.png"
+                alt="도어 아이콘 이미지"
+            /></a>
+          </div>
+          <div class="item category">
+            <div>
+              <p>CATEGORY</p>
+            </div>
+            <div>
+              <p>DESIGN FOR HEALTH</p>
+              <p>AND WELL-BEING</p>
+            </div>
+            <div>
+              <p>
+                우딘은 건강한 공간을 만든다는 일념으로 끊임없이 친환경 제품을
+                연구합니다.
+              </p>
+            </div>
+          </div>
+          <div class="item midDoor">
+            <a href="#"
+              ><img
+                src="./assets/images/main/s3_icon_mid-door.png"
+                alt="중문 아이콘 이미지"
+            /></a>
+          </div>
+          <div class="item sheet">
+            <a href="#"
+              ><img
+                src="./assets/images/main/s3_icon_sheet.png"
+                alt="시트 아이콘 이미지"
+            /></a>
+          </div>
+          <div class="item board">
+            <a href="#"
+              ><img
+                src="./assets/images/main/s3_icon_board.png"
+                alt="보드 아이콘 이미지"
+            /></a>
+          </div>
+          <div class="item windows">
+            <a href="#"
+              ><img
+                src="./assets/images/main/s3_icon_windows.png"
+                alt="창호 아이콘 이미지"
+            /></a>
+          </div>
+          <div class="item lumber">
+            <a href="#"
+              ><img
+                src="./assets/images/main/s3_icon_lumber.png"
+                alt="목재 아이콘 이미지"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </section>
     <section><div id="section04" class="wrap"></div></section>
     <section><div id="section05" class="wrap"></div></section>
     <section><div id="section06" class="wrap"></div></section>

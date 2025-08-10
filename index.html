@@ -29,7 +29,6 @@
       a:hover {
         color: rgb(44, 129, 70);
       }
-
       ul {
         list-style: none;
       }
@@ -299,19 +298,95 @@
         border-radius: 0;
         background-color: #000000;
         transition: all 0.2s linear;
+        z-index: 4;
+        display: flex;
+      }
+      #section04 .section04__itembox01 {
+        width: 35%;
+        height: calc(91.5vh - 40px);
+        /* background-color: lightgreen; */
+        padding-right: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        text-align: right;
+        gap: 30px;
+      }
+      #section04 .section04__itembox02 {
+        width: 65%;
+        height: calc(91.5vh - 40px);
+        /* background-color: rgba(144, 238, 144, 0.582); */
+        overflow: hidden;
+        border-radius: 10px;
+        position: relative;
+        z-index: 40;
       }
 
-      /*  */
-      /* .wrap {
-        width: calc(100vw - 80px);
-        height: calc(91.5vh - 40px);
-        background-color: rgb(70, 70, 221);
-        margin: 0 auto;
-        position: relative;
-        border-radius: 10px;
-        top: 82px;
-        margin-bottom: 82px;
-      } */
+      .section04__itembox01 div:nth-of-type(1) {
+        font-size: 18px;
+        font-weight: 500;
+        color: #c4c4c4;
+      }
+      .section04__itembox01 div:nth-of-type(2) {
+        font-size: 60px;
+        font-weight: 100;
+        line-height: 70px;
+        color: #f0f0f0;
+      }
+      .section04__itembox01 div:nth-of-type(3) span {
+        display: block;
+        width: 60px;
+        height: 1px;
+        background-color: #999;
+      }
+      .section04__itembox01 div:nth-of-type(4) .location {
+        font-size: 22px;
+        font-weight: 300;
+        color: #999;
+      }
+      .section04__itembox01 div:nth-of-type(4) .address {
+        font-size: 16px;
+        color: #999;
+      }
+      .section04__itembox01 div:nth-of-type(5) {
+        display: flex;
+        gap: 4px;
+      }
+      .section04__itembox01 div:nth-of-type(5) a {
+        color: #9c9c9c;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 2px;
+      }
+      .section04__itembox01 div:nth-of-type(5) .more {
+        filter: brightness(80%);
+      }
+
+      .s4__btns {
+        position: absolute;
+        z-index: 41;
+        bottom: 4%;
+        left: 2%;
+        display: flex;
+        justify-content: space-between;
+        gap: 26px;
+        align-items: center;
+        padding: 10px 20px;
+      }
+
+      .s4__btns span {
+        display: block;
+        width: 1px;
+        height: 20px;
+        background-color: #e4e4e4;
+      }
+      .s4__btns a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
       /* footer */
       footer {
         width: 100%;
@@ -473,7 +548,63 @@
       </div>
     </section>
     <section>
-      <div id="section04" class="wrap"></div>
+      <div id="section04" class="wrap">
+        <div class="section04__itembox01">
+          <div>
+            <p>SHOWROOM</p>
+          </div>
+          <div>
+            <p>WOODIN</p>
+            <p>SHOWROOM</p>
+          </div>
+          <div>
+            <span></span>
+          </div>
+          <div>
+            <p class="location">우딘 전시장</p>
+            <p class="address">인천 서구 북항로 122 (원창동) T. 032-583-0160</p>
+          </div>
+          <div>
+            <a href="#">
+              VIEW MORE<span>
+                <img
+                  class="more"
+                  src="./assets/images/main/view_icon.png"
+                  alt="더보기 아이콘
+                이미지"
+                />
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="section04__itembox02">
+          <div>
+            <a href="#">
+              <img
+                width="100%"
+                height="100%"
+                src="./assets/images/main/s4.jpg"
+                alt="도어소개 첫번째 이미지"
+              />
+            </a>
+          </div>
+          <div class="s4__btns">
+            <a href="#">
+              <img
+                src="./assets/images/main/main_prev.png"
+                alt="이전 버튼 아이콘"
+              />
+            </a>
+            <span></span>
+            <a href="#">
+              <img
+                src="./assets/images/main/main_next.png"
+                alt="다음 버튼 아이콘"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
     <section><div id="section05" class="wrap"></div></section>
     <section><div id="section06" class="wrap"></div></section>

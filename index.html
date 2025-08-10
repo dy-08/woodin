@@ -69,6 +69,7 @@
         height: 82px;
         position: fixed;
         z-index: 999;
+        transition: all 0.2s linear;
         /* background-color: rgba(238, 185, 194, 0.753); */
       }
 
@@ -290,7 +291,27 @@
         font-size: 16px;
         color: #999;
       }
+      /* section 04 */
+      /* section z–index ( main:4, sub:40~49 ) */
+      /* ✅ 자바스크립트에서 헤더영역 로고와 아이콘 이미지변경, 폰트 색상변경필요 – 완료*/
+      #section04 {
+        width: 100%;
+        border-radius: 0;
+        background-color: #000000;
+        transition: all 0.2s linear;
+      }
 
+      /*  */
+      /* .wrap {
+        width: calc(100vw - 80px);
+        height: calc(91.5vh - 40px);
+        background-color: rgb(70, 70, 221);
+        margin: 0 auto;
+        position: relative;
+        border-radius: 10px;
+        top: 82px;
+        margin-bottom: 82px;
+      } */
       /* footer */
       footer {
         width: 100%;
@@ -300,7 +321,7 @@
     </style>
   </head>
   <body>
-    <header>
+    <header id="head">
       <div class="inner">
         <div class="header__logowrap">
           <a href="#">
@@ -314,9 +335,9 @@
         <div class="header__naviwrap">
           <nav>
             <ul class="header__navis">
-              <li><a href="#">WOODIN</a></li>
-              <li><a href="#">PRODUCTS</a></li>
-              <li><a href="#">SUPPORT</a></li>
+              <li><a class="navi__item" href="#">WOODIN</a></li>
+              <li><a class="navi__item" href="#">PRODUCTS</a></li>
+              <li><a class="navi__item" href="#">SUPPORT</a></li>
             </ul>
           </nav>
         </div>
@@ -451,7 +472,9 @@
         </div>
       </div>
     </section>
-    <section><div id="section04" class="wrap"></div></section>
+    <section>
+      <div id="section04" class="wrap"></div>
+    </section>
     <section><div id="section05" class="wrap"></div></section>
     <section><div id="section06" class="wrap"></div></section>
     <section><div id="section07" class="wrap"></div></section>

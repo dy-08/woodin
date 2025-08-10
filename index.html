@@ -386,6 +386,38 @@
         width: 100%;
         height: 100%;
       }
+      /* section 05 */
+      /* section z–index ( main:5, sub:50~59 ) */
+      #section05 {
+        z-index: 5;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        top: 164px;
+      }
+
+      #section05 .s5__title {
+        font-size: 18px;
+        font-weight: 500;
+      }
+      #section05 .s5__subtitle {
+        font-size: 60px;
+        font-weight: 100;
+      }
+      #section05 .section05__itembox01 {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .s5__item img {
+        border-radius: 10px;
+      }
+      .section05__itembox01 p {
+        font-size: 19px;
+        padding: 4px;
+      }
 
       /* footer */
       footer {
@@ -606,7 +638,59 @@
         </div>
       </div>
     </section>
-    <section><div id="section05" class="wrap"></div></section>
+    <section>
+      <div id="section05" class="wrap">
+        <p class="s5__title">GALLERY</p>
+        <p class="s5__subtitle">BEST QUALITY WELLNESS INTERIOR</p>
+        <div class="section05__itembox01">
+          <div>
+            <div class="s5__item">
+              <img
+                src="./assets/images/main/s5_generoSeries.jpg"
+                alt="제네로시리즈 이미지"
+              />
+            </div>
+            <p>제네로 시리즈</p>
+          </div>
+          <div class="s5__item">
+            <div>
+              <img
+                src="./assets/images/main/s5_vigiogrande.jpg"
+                alt="비지오그란데 이미지"
+              />
+            </div>
+            <p>비지오 그란데</p>
+          </div>
+          <div class="s5__item">
+            <div>
+              <img
+                src="./assets/images/main/s5_pdld.jpg"
+                alt="타공 양개 도어 이미지"
+              />
+            </div>
+            <p>타공 양개 도어</p>
+          </div>
+          <div class="s5__item">
+            <div>
+              <img
+                src="./assets/images/main/s5_ signatureDoor.jpg"
+                alt="시그니처 도어 이미지"
+              />
+            </div>
+            <p>시그니처 도어</p>
+          </div>
+          <div class="s5__item">
+            <div>
+              <img
+                src="./assets/images/main/s5_ thembaBoard.jpg"
+                alt="템바보드 이미지"
+              />
+            </div>
+            <p>템바보드</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <section><div id="section06" class="wrap"></div></section>
     <section><div id="section07" class="wrap"></div></section>
     <section><div id="section08" class="wrap"></div></section>

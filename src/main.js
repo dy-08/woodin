@@ -22,6 +22,8 @@ window.addEventListener('wheel', (event) => {
 /**
  * 마우스 스크롤 이벤트를 이용해 초기이벤트 설정
  * Last updated: 2025‑08‑09
+ * 헤더: 섹션04에서 다크 스타일(배경/글자/로고) 전환
+ * Last updated: 2025‑08‑10
  */
 function scrollEvent() {
   let wsy = window.scrollY;
@@ -33,6 +35,22 @@ function scrollEvent() {
     document.getElementById('section01').classList.add('active');
   } else {
     document.getElementById('section01').classList.remove('active');
+  }
+
+  const item04 = document.getElementById('section04').offsetTop;
+  const item05 = document.getElementById('section05').offsetTop;
+  const header = document.getElementById('head');
+  const headerImgLogo = document.querySelector('.header__logo');
+  const naviItem = document.querySelectorAll('.navi__item');
+
+  if (wsy >= item04 - 82 && wsy < item05 - 82) {
+    header.style.backgroundColor = '#000000';
+    headerImgLogo.src = '../assets/images/common/logo2.png';
+    naviItem.forEach((item) => (item.style.color = '#fff'));
+  } else {
+    header.style.backgroundColor = 'transparent';
+    headerImgLogo.src = '../assets/images/common/logo.png';
+    naviItem.forEach((item) => (item.style.color = 'rgb(85, 85, 85)'));
   }
 }
 scrollEvent();

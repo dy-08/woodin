@@ -60,27 +60,27 @@ function scrollEvent() {
   const span = document.querySelectorAll('.icon__menu');
 
   if (inS04 || inS06) {
-    headerImgLogo.src = '../assets/images/common/logo2.png'; //✅
+    headerImgLogo.src = './assets/images/common/logo2.png'; //✅
     naviItem.forEach((item) => (item.style.color = '#fff')); //✅
     document.querySelector('.icon_lang').src =
-      '../assets/images/common/lang_icon2.png';
+      './assets/images/common/lang_icon2.png';
     document.querySelector('.icon_search').src =
-      '../assets/images/common/search_icon2.png';
+      './assets/images/common/search_icon2.png';
     span.forEach((item) => (item.style.backgroundColor = '#fff'));
   } else {
-    headerImgLogo.src = '../assets/images/common/logo.png'; //✅
+    headerImgLogo.src = './assets/images/common/logo.png'; //✅
     naviItem.forEach((item) => (item.style.color = 'rgb(85, 85, 85)')); //✅
     document.querySelector('.icon_lang').src =
-      '../assets/images/common/lang_icon.png';
+      './assets/images/common/lang_icon.png';
     document.querySelector('.icon_search').src =
-      '../assets/images/common/search_icon.png';
+      './assets/images/common/search_icon.png';
     span.forEach((item) => (item.style.backgroundColor = '#000'));
   }
   if (wsy > s06 && wsy < 5256) {
     // wsy의 수치를 기준으로 다음 섹션의 탑 위치를 잡아줘야함
     document.getElementById('s06_wrap').style.height = '100vh';
     document.getElementById('s06_wrap').style.backgroundImage =
-      'url(../assets/images/main/s6_brand_bg.jpg';
+      'url(./assets/images/main/s6_brand_bg.jpg';
     document.getElementById('s06_wrap').style.backgroundPosition = 'center';
     document.getElementById('s06_wrap').style.filter = 'brightness(90%)';
   } else {

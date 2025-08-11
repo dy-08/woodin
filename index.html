@@ -1,804 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>우딘</title>
-
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
-
-      /* reset */
-      * {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        box-sizing: border-box;
-
-        /* google Font */
-        font-family: 'Noto Sans KR', sans-serif;
-        font-optical-sizing: auto;
-        font-weight: <weight>;
-        font-style: normal;
-      }
-
-      a {
-        text-decoration: none;
-        color: rgb(85, 85, 85);
-      }
-      a:hover {
-        color: rgb(44, 129, 70);
-      }
-      ul {
-        list-style: none;
-      }
-
-      /* colors */
-      body {
-        color: rgb(85, 85, 85);
-        background-color: #f3f3f3;
-      }
-
-      /* common */
-      .inner {
-        width: calc(100vw - 80px);
-        height: calc(91.5vh - 40px);
-        margin: 0 auto;
-        display: flex;
-        height: 100%;
-      }
-
-      /* section z–index ( 1~10 ) */
-      .wrap {
-        width: calc(100vw - 80px);
-        height: calc(91.5vh - 40px);
-        background-color: rgb(70, 70, 221);
-        margin: 0 auto;
-        position: relative;
-        border-radius: 10px;
-        top: 82px;
-        margin-bottom: 82px;
-        /* 스크롤이벤트시 참고: 2번째 section의 탑위치는 두번째섹션위치 - 82px로 잡아야됨 */
-      }
-
-      /* header */
-      /* z–index ( 999 ) */
-      header {
-        width: 100%;
-        height: 82px;
-        position: fixed;
-        z-index: 999;
-        transition: all 0.2s linear;
-        /* background-color: rgba(238, 185, 194, 0.753); */
-      }
-
-      .menu {
-        display: block;
-        width: 18px;
-        height: 18px;
-        margin-bottom: 6px; /*?*/
-      }
-      .menu span {
-        display: block;
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background-color: black;
-      }
-      .menu div {
-        display: flex;
-        gap: 10px;
-      }
-      .menu span:nth-child(1),
-      .menu span:nth-child(2) {
-        margin-bottom: 10px;
-      }
-
-      .header__logowrap {
-        width: 10%;
-        /* background-color: aquamarine; */
-      }
-      .header__naviwrap {
-        width: 80%;
-        /* background-color: rgba(137, 43, 226, 0.616); */
-      }
-      .header__iconswrap {
-        width: 10%;
-        /* background-color: rgba(165, 42, 42, 0.473); */
-      }
-
-      .header__logowrap a {
-        display: block;
-        width: 100%;
-        height: 82px;
-        line-height: 92px;
-      }
-      .header__logo {
-        margin-left: 10%;
-      }
-      .header__navis {
-        display: flex;
-        gap: 8%;
-        font-weight: bold;
-        align-items: center;
-        height: 82px;
-      }
-      .header__navis:nth-child(1) {
-        margin-left: 8%;
-      }
-      .header__iconswrap {
-        display: flex;
-        justify-content: flex-end;
-        gap: 14%;
-        align-items: center;
-      }
-
-      /* Sections */
-      /* section 01 */
-      /* section z–index ( main:1, sub:10~19 ) */
-      #section01 {
-        /* transform: scale(0); */
-        /* transition: transform 0.5s linear; */
-        width: 0;
-        transition: all 1s ease-in-out;
-        background: url(./assets/images/main/file1_16450763511qly671qvc.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      #section01.active {
-        /* transform: scaleX(1); */
-        width: calc(100vw - 80px);
-      }
-
-      #section01 p {
-        color: #dddddd;
-        font-size: 60px;
-        font-weight: 100;
-      }
-
-      /* section 02 */
-      /* section z–index ( main:2, sub:20~29 ) */
-      #section02 {
-        /* background-color: rgb(116, 204, 131); */
-        background-color: transparent;
-        display: flex;
-        justify-content: space-between;
-        z-index: 2;
-      }
-      #section02 .section02__item01 {
-        width: 50%;
-        height: 100%;
-        position: absolute;
-        z-index: 21;
-        background-color: transparent;
-        /* background-color: rgb(148, 148, 226); */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        gap: 30px;
-      }
-      #section02 .section02__item02 {
-        width: 50%;
-        height: 100%;
-        position: absolute;
-        z-index: 22;
-        right: 0;
-        overflow: hidden;
-        border-radius: 10px;
-      }
-      #section02 .section02__item01 div:nth-child(1) {
-        font-size: 18px;
-        font-weight: 500;
-      }
-      #section02 .section02__item01 div:nth-child(2) {
-        font-size: 60px;
-        font-weight: 100;
-        line-height: 70px;
-        color: #444;
-      }
-      #section02 .section02__item01 div:nth-child(3) span {
-        display: block;
-        width: 60px;
-        height: 1px;
-        background-color: rgb(85, 85, 85);
-      }
-      #section02 .section02__item01 div:nth-child(4) {
-        font-size: 17px;
-        color: #999;
-      }
-      /* section 03 */
-      /* section z–index ( main:3, sub:30~39 ) */
-      #section03 {
-        background-color: transparent;
-        z-index: 3;
-      }
-      #section03 .section03__itembox {
-        width: 100%;
-        height: 100%;
-        padding-top: 82px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2%;
-      }
-      .section03__itembox .item {
-        height: 310px;
-        border-radius: 10px;
-        background-repeat: no-repeat;
-        background-size: 100%;
-        background-position: center;
-        transition: all 0.5s linear;
-      }
-      .item:hover {
-        filter: brightness(90%);
-        background-size: 108%;
-      }
-      .section03__itembox a {
-        display: block;
-        width: 100%;
-        height: 310px;
-        line-height: 300px;
-        text-align: center;
-      }
-      .section03__itembox .door {
-        background-image: url(./assets/images/main/s3_door.jpg);
-      }
-      .section03__itembox .midDoor {
-        background-image: url(./assets/images/main/s3_mid-door.jpg);
-      }
-      .section03__itembox .sheet {
-        background-image: url(./assets/images/main/s3_sheet.jpg);
-      }
-      .section03__itembox .board {
-        background-image: url(./assets/images/main/s3_board.jpg);
-      }
-      .section03__itembox .windows {
-        background-image: url(./assets/images/main/s3_windows.jpg);
-      }
-      .section03__itembox .lumber {
-        background-image: url(./assets/images/main/s3_lumber.jpg);
-      }
-      .section03__itembox .category {
-        grid-column: span 2;
-        /* background-color: #999; */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        gap: 14px;
-      }
-      .category div:nth-of-type(1) {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 30px;
-      }
-      .category div:nth-of-type(2) {
-        font-size: 58px;
-        font-weight: 200;
-        line-height: 68px;
-        color: #444;
-      }
-      .category div:nth-of-type(3) {
-        font-size: 16px;
-        color: #999;
-      }
-      /* section 04 */
-      /* section z–index ( main:4, sub:40~49 ) */
-      /* ✅ 자바스크립트에서 헤더영역 로고와 아이콘 이미지변경, 폰트 색상변경필요 – 완료*/
-      #section04 {
-        width: 100%;
-        border-radius: 0;
-        background-color: #000000;
-        transition: all 0.2s linear;
-        z-index: 4;
-        display: flex;
-      }
-      #section04 .section04__itembox01 {
-        width: 35%;
-        height: calc(91.5vh - 40px);
-        /* background-color: lightgreen; */
-        padding-right: 80px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        text-align: right;
-        gap: 30px;
-      }
-      #section04 .section04__itembox02 {
-        width: 65%;
-        height: calc(91.5vh - 40px);
-        /* background-color: rgba(144, 238, 144, 0.582); */
-        overflow: hidden;
-        border-radius: 10px;
-        position: relative;
-        z-index: 40;
-      }
-
-      .section04__itembox01 div:nth-of-type(1) {
-        font-size: 18px;
-        font-weight: 500;
-        color: #c4c4c4;
-      }
-      .section04__itembox01 div:nth-of-type(2) {
-        font-size: 60px;
-        font-weight: 100;
-        line-height: 70px;
-        color: #f0f0f0;
-      }
-      .section04__itembox01 div:nth-of-type(3) span {
-        display: block;
-        width: 60px;
-        height: 1px;
-        background-color: #999;
-      }
-      .section04__itembox01 div:nth-of-type(4) .location {
-        font-size: 22px;
-        font-weight: 300;
-        color: #999;
-      }
-      .section04__itembox01 div:nth-of-type(4) .address {
-        font-size: 16px;
-        color: #999;
-      }
-      .section04__itembox01 div:nth-of-type(5) {
-        display: flex;
-        gap: 4px;
-      }
-      .section04__itembox01 div:nth-of-type(5) a {
-        color: #9c9c9c;
-        font-size: 12px;
-        font-weight: bold;
-        padding: 2px;
-      }
-      .section04__itembox01 div:nth-of-type(5) .more {
-        filter: brightness(80%);
-      }
-
-      .s4__btns {
-        position: absolute;
-        z-index: 41;
-        bottom: 4%;
-        left: 2%;
-        display: flex;
-        justify-content: space-between;
-        gap: 26px;
-        align-items: center;
-        padding: 10px 20px;
-      }
-
-      .s4__btns span {
-        display: block;
-        width: 1px;
-        height: 20px;
-        background-color: #e4e4e4;
-      }
-      .s4__btns a {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-      /* section 05 */
-      /* section z–index ( main:5, sub:50~59 ) */
-      #section05 {
-        z-index: 5;
-        background-color: transparent;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        top: 164px;
-      }
-
-      #section05 .s5__title {
-        font-size: 18px;
-        font-weight: 500;
-      }
-      #section05 .s5__subtitle {
-        font-size: 60px;
-        font-weight: 100;
-      }
-      #section05 .section05__itembox01 {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-      }
-
-      .s5__item img {
-        border-radius: 10px;
-      }
-      .section05__itembox01 p {
-        font-size: 19px;
-        padding: 4px;
-      }
-      /* section 06 */
-      /* section z–index ( main:6, sub:60~69 ) */
-      #s06_wrap {
-        position: relative;
-        z-index: 6;
-        width: 100%;
-      }
-      #section06 {
-        z-index: 60;
-        background-image: url(./assets/images/main/s6_brand_bg.jpg);
-        background-repeat: no-repeat;
-        background-position: center -116px;
-        filter: brightness(120%);
-        display: flex;
-        flex-direction: column;
-        color: rgb(245, 245, 245);
-      }
-      #section06 .section06__itembox01 {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-      }
-      .section06__itembox01 .s06__title {
-        font-size: 18px;
-        font-weight: 400;
-      }
-      .section06__itembox01 .s06__subtitle {
-        font-size: 60px;
-        font-weight: 100;
-      }
-      .section06__itembox01 .brand {
-        margin-top: 100px;
-        display: flex;
-        gap: 100px;
-      }
-      .brand .s06__item {
-        width: 240px;
-        height: 200px;
-        text-align: center;
-        /* background-color: #999; */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-      }
-      .brand .s06__item .s06__item__title {
-        font-size: 28px;
-        font-weight: 300;
-      }
-      .brand .s06__item .s06__item__subtitle {
-        font-size: 17px;
-        font-weight: 300;
-        color: #ebebeb;
-      }
-
-      /* footer */
-      footer {
-        width: 100%;
-        height: 190px;
-        background-color: rgb(22, 22, 22);
-      }
-    </style>
-  </head>
-  <body>
-    <header id="head">
-      <div class="inner">
-        <div class="header__logowrap">
-          <a href="#">
-            <img
-              class="header__logo"
-              src="./assets/images/common/logo.png"
-              alt="우딘 로고"
-            />
-          </a>
-        </div>
-        <div class="header__naviwrap">
-          <nav>
-            <ul class="header__navis">
-              <li><a class="navi__item" href="#">WOODIN</a></li>
-              <li><a class="navi__item" href="#">PRODUCTS</a></li>
-              <li><a class="navi__item" href="#">SUPPORT</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="header__iconswrap">
-          <a href="#">
-            <img
-              src="./assets/images/common/lang_icon.png"
-              alt="언어 아이콘사진"
-              class="header__icon icon_lang"
-            />
-          </a>
-          <a href="#">
-            <img
-              src="./assets/images/common/search_icon.png"
-              alt="검색 아이콘사진"
-              class="header__icon icon_search"
-            />
-          </a>
-          <a class="header__icon menu" href="#">
-            <div>
-              <span class="icon__menu"></span>
-              <span class="icon__menu"></span>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>우딘</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <header id="head">
+            <div class="inner">
+                <div class="header__logowrap">
+                    <a href="#">
+                        <img class="header__logo" src="./assets/images/common/logo.png" alt="우딘 로고" />
+                    </a>
+                </div>
+                <div class="header__naviwrap">
+                    <nav>
+                        <ul class="header__navis">
+                            <li><a class="navi__item" href="#">WOODIN</a></li>
+                            <li><a class="navi__item" href="#">PRODUCTS</a></li>
+                            <li><a class="navi__item" href="#">SUPPORT</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header__iconswrap">
+                    <a href="#">
+                        <img
+                            src="./assets/images/common/lang_icon.png"
+                            alt="언어 아이콘사진"
+                            class="header__icon icon_lang"
+                        />
+                    </a>
+                    <a href="#">
+                        <img
+                            src="./assets/images/common/search_icon.png"
+                            alt="검색 아이콘사진"
+                            class="header__icon icon_search"
+                        />
+                    </a>
+                    <a class="header__icon menu" href="#">
+                        <div>
+                            <span class="icon__menu"></span>
+                            <span class="icon__menu"></span>
+                        </div>
+                        <div>
+                            <span class="icon__menu"></span>
+                            <span class="icon__menu"></span>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div>
-              <span class="icon__menu"></span>
-              <span class="icon__menu"></span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </header>
-    <!-- <div>WOODIN</div>
+        </header>
+        <!-- <div>WOODIN</div>
     <div>PRODUCTS</div>
     <div>SUPPORT</div>
     <div>LAGUAGE</div>
     <div>SEARCH</div>
     <div>MENU</div> -->
-    <!-- section–01 -->
-    <section>
-      <div id="section01" class="wrap">
-        <p>CREATING HEALING SPACE IS</p>
-        <p>WOODIN HAUS’S TOP PRIORITY.</p>
-      </div>
-    </section>
-    <section>
-      <div id="section02" class="wrap">
-        <div class="section02__item01">
-          <div>
-            <p>BEST PRODUCT</p>
-          </div>
-          <div>
-            <p>ECO-FRIENDLY AND</p>
-            <p>HIGH-QUALITY</p>
-            <p>PRODUCTS</p>
-          </div>
-          <div>
-            <span></span>
-          </div>
-          <div>
-            <p>우딘 HAUS는 건강한 공간을 위한</p>
-            <p>최선의 선택을 합니다.</p>
-          </div>
-        </div>
-        <div class="section02__item02">
-          <img
-            src="./assets/images/main/file1_1644378955plisylqeof.jpg"
-            alt="중문 제네로시리즈 시공 이미지"
-          />
-        </div>
-      </div>
-    </section>
-    <section>
-      <div id="section03" class="wrap">
-        <div class="section03__itembox">
-          <div class="item door">
-            <a href="#">
-              <img
-                src="./assets/images/main/s3_icon_door.png"
-                alt="도어 아이콘 이미지"
-            /></a>
-          </div>
-          <div class="item category">
-            <div>
-              <p>CATEGORY</p>
+        <!-- section–01 -->
+        <section>
+            <div id="section01" class="wrap">
+                <p>CREATING HEALING SPACE IS</p>
+                <p>WOODIN HAUS’S TOP PRIORITY.</p>
             </div>
-            <div>
-              <p>DESIGN FOR HEALTH</p>
-              <p>AND WELL-BEING</p>
+        </section>
+        <!-- section–02 -->
+        <section>
+            <div id="section02" class="wrap">
+                <div class="section02__item01">
+                    <div class="s02__rtol">
+                        <p>BEST PRODUCT</p>
+                    </div>
+                    <div class="s02__btot">
+                        <p>ECO-FRIENDLY AND</p>
+                        <p>HIGH-QUALITY</p>
+                        <p>PRODUCTS</p>
+                    </div>
+                    <div class="s02__btot">
+                        <span></span>
+                    </div>
+                    <div class="s02__btot">
+                        <p>우딘 HAUS는 건강한 공간을 위한</p>
+                        <p>최선의 선택을 합니다.</p>
+                    </div>
+                </div>
+                <div class="section02__item02">
+                    <img
+                        src="./assets/images/main/file1_1644378955plisylqeof.jpg"
+                        alt="중문 제네로시리즈 시공 이미지"
+                    />
+                </div>
             </div>
-            <div>
-              <p>
-                우딘은 건강한 공간을 만든다는 일념으로 끊임없이 친환경 제품을
-                연구합니다.
-              </p>
+        </section>
+        <section>
+            <div id="section03" class="wrap">
+                <div class="section03__itembox">
+                    <div class="item door">
+                        <a href="#"> <img src="./assets/images/main/s3_icon_door.png" alt="도어 아이콘 이미지" /></a>
+                    </div>
+                    <div class="item category">
+                        <div>
+                            <p>CATEGORY</p>
+                        </div>
+                        <div>
+                            <p>DESIGN FOR HEALTH</p>
+                            <p>AND WELL-BEING</p>
+                        </div>
+                        <div>
+                            <p>우딘은 건강한 공간을 만든다는 일념으로 끊임없이 친환경 제품을 연구합니다.</p>
+                        </div>
+                    </div>
+                    <div class="item midDoor">
+                        <a href="#"><img src="./assets/images/main/s3_icon_mid-door.png" alt="중문 아이콘 이미지" /></a>
+                    </div>
+                    <div class="item sheet">
+                        <a href="#"><img src="./assets/images/main/s3_icon_sheet.png" alt="시트 아이콘 이미지" /></a>
+                    </div>
+                    <div class="item board">
+                        <a href="#"><img src="./assets/images/main/s3_icon_board.png" alt="보드 아이콘 이미지" /></a>
+                    </div>
+                    <div class="item windows">
+                        <a href="#"><img src="./assets/images/main/s3_icon_windows.png" alt="창호 아이콘 이미지" /></a>
+                    </div>
+                    <div class="item lumber">
+                        <a href="#"><img src="./assets/images/main/s3_icon_lumber.png" alt="목재 아이콘 이미지" /></a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="item midDoor">
-            <a href="#"
-              ><img
-                src="./assets/images/main/s3_icon_mid-door.png"
-                alt="중문 아이콘 이미지"
-            /></a>
-          </div>
-          <div class="item sheet">
-            <a href="#"
-              ><img
-                src="./assets/images/main/s3_icon_sheet.png"
-                alt="시트 아이콘 이미지"
-            /></a>
-          </div>
-          <div class="item board">
-            <a href="#"
-              ><img
-                src="./assets/images/main/s3_icon_board.png"
-                alt="보드 아이콘 이미지"
-            /></a>
-          </div>
-          <div class="item windows">
-            <a href="#"
-              ><img
-                src="./assets/images/main/s3_icon_windows.png"
-                alt="창호 아이콘 이미지"
-            /></a>
-          </div>
-          <div class="item lumber">
-            <a href="#"
-              ><img
-                src="./assets/images/main/s3_icon_lumber.png"
-                alt="목재 아이콘 이미지"
-            /></a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div id="section04" class="wrap">
-        <div class="section04__itembox01">
-          <div>
-            <p>SHOWROOM</p>
-          </div>
-          <div>
-            <p>WOODIN</p>
-            <p>SHOWROOM</p>
-          </div>
-          <div>
-            <span></span>
-          </div>
-          <div>
-            <p class="location">우딘 전시장</p>
-            <p class="address">인천 서구 북항로 122 (원창동) T. 032-583-0160</p>
-          </div>
-          <div>
-            <a href="#">
-              VIEW MORE<span>
-                <img
-                  class="more"
-                  src="./assets/images/main/view_icon.png"
-                  alt="더보기 아이콘
+        </section>
+        <section>
+            <div id="section04" class="wrap">
+                <div class="section04__itembox01">
+                    <div>
+                        <p>SHOWROOM</p>
+                    </div>
+                    <div>
+                        <p>WOODIN</p>
+                        <p>SHOWROOM</p>
+                    </div>
+                    <div>
+                        <span></span>
+                    </div>
+                    <div>
+                        <p class="location">우딘 전시장</p>
+                        <p class="address">인천 서구 북항로 122 (원창동) T. 032-583-0160</p>
+                    </div>
+                    <div>
+                        <a href="#">
+                            VIEW MORE<span>
+                                <img
+                                    class="more"
+                                    src="./assets/images/main/view_icon.png"
+                                    alt="더보기 아이콘
                 이미지"
-                />
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="section04__itembox02">
-          <div>
-            <a href="#">
-              <img
-                width="100%"
-                height="100%"
-                src="./assets/images/main/s4.jpg"
-                alt="도어소개 첫번째 이미지"
-              />
-            </a>
-          </div>
-          <div class="s4__btns">
-            <a href="#">
-              <img
-                src="./assets/images/main/main_prev.png"
-                alt="이전 버튼 아이콘"
-              />
-            </a>
-            <span></span>
-            <a href="#">
-              <img
-                src="./assets/images/main/main_next.png"
-                alt="다음 버튼 아이콘"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div id="section05" class="wrap">
-        <p class="s5__title">GALLERY</p>
-        <p class="s5__subtitle">BEST QUALITY WELLNESS INTERIOR</p>
-        <div class="section05__itembox01">
-          <div class="s5__item">
-            <div>
-              <img
-                src="./assets/images/main/s5_generoSeries.jpg"
-                alt="제네로시리즈 이미지"
-              />
+                                />
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="section04__itembox02">
+                    <div>
+                        <a href="#">
+                            <img
+                                width="100%"
+                                height="100%"
+                                src="./assets/images/main/s4.jpg"
+                                alt="도어소개 첫번째 이미지"
+                            />
+                        </a>
+                    </div>
+                    <div class="s4__btns">
+                        <a href="#">
+                            <img src="./assets/images/main/main_prev.png" alt="이전 버튼 아이콘" />
+                        </a>
+                        <span></span>
+                        <a href="#">
+                            <img src="./assets/images/main/main_next.png" alt="다음 버튼 아이콘" />
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p>제네로 시리즈</p>
-          </div>
-          <div class="s5__item">
-            <div>
-              <img
-                src="./assets/images/main/s5_vigiogrande.jpg"
-                alt="비지오그란데 이미지"
-              />
+        </section>
+        <section>
+            <div id="section05" class="wrap">
+                <p class="s5__title">GALLERY</p>
+                <p class="s5__subtitle">BEST QUALITY WELLNESS INTERIOR</p>
+                <div class="section05__itembox01">
+                    <div class="s5__item">
+                        <div>
+                            <img src="./assets/images/main/s5_generoSeries.jpg" alt="제네로시리즈 이미지" />
+                        </div>
+                        <p>제네로 시리즈</p>
+                    </div>
+                    <div class="s5__item">
+                        <div>
+                            <img src="./assets/images/main/s5_vigiogrande.jpg" alt="비지오그란데 이미지" />
+                        </div>
+                        <p>비지오 그란데</p>
+                    </div>
+                    <div class="s5__item">
+                        <div>
+                            <img src="./assets/images/main/s5_pdld.jpg" alt="타공 양개 도어 이미지" />
+                        </div>
+                        <p>타공 양개 도어</p>
+                    </div>
+                    <div class="s5__item">
+                        <div>
+                            <img src="./assets/images/main/s5_ signatureDoor.jpg" alt="시그니처 도어 이미지" />
+                        </div>
+                        <p>시그니처 도어</p>
+                    </div>
+                    <div class="s5__item">
+                        <div>
+                            <img src="./assets/images/main/s5_ thembaBoard.jpg" alt="템바보드 이미지" />
+                        </div>
+                        <p>템바보드</p>
+                    </div>
+                </div>
             </div>
-            <p>비지오 그란데</p>
-          </div>
-          <div class="s5__item">
-            <div>
-              <img
-                src="./assets/images/main/s5_pdld.jpg"
-                alt="타공 양개 도어 이미지"
-              />
+        </section>
+        <section id="s06_wrap">
+            <div id="section06" class="wrap">
+                <div class="section06__itembox01">
+                    <div>
+                        <p class="s06__title">BRAND</p>
+                    </div>
+                    <div>
+                        <p class="s06__subtitle">BE GREEN, BE HEALING LIFE</p>
+                    </div>
+                    <div class="brand">
+                        <div class="s06__item">
+                            <!-- <img src="" alt="" /> -->
+                            <p class="s06__item__title">40년 목재 역사</p>
+                            <div class="s06__item__subtitle">
+                                <p>Since 1982</p>
+                                <p>특수목 전문 기업</p>
+                            </div>
+                        </div>
+                        <div class="s06__item">
+                            <!-- <img src="" alt="" /> -->
+                            <p class="s06__item__title">친환경 자재 사용</p>
+                            <div class="s06__item__subtitle">
+                                <p>자연과 가까운</p>
+                                <p>친환경 제품 사용</p>
+                            </div>
+                        </div>
+                        <div class="s06__item">
+                            <!-- <img src="" alt="" /> -->
+                            <p class="s06__item__title">고객 만족 제일주의</p>
+                            <div class="s06__item__subtitle">
+                                <p>세계의 다양한 목재를 연구, 개발</p>
+                                <p>합리적 가격의 제품을 생산</p>
+                            </div>
+                        </div>
+                        <div class="s06__item">
+                            <!-- <img src="" alt="" /> -->
+                            <p class="s06__item__title">감각적 디자인</p>
+                            <div class="s06__item__subtitle">
+                                <p>다양한 디자인의 제품으로</p>
+                                <p>색다른 인테리어 연출</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p>타공 양개 도어</p>
-          </div>
-          <div class="s5__item">
-            <div>
-              <img
-                src="./assets/images/main/s5_ signatureDoor.jpg"
-                alt="시그니처 도어 이미지"
-              />
+        </section>
+        <section>
+            <div id="section07" class="wrap">
+                <div class="section07__itembox01">
+                    <video class="s07__video" controls>
+                        <source src="./assets/videos/mp4/woodin_HAUS_30s.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="section07__itembox02">
+                    <div class="itembox02__inner">
+                        <div>
+                            <p class="s07__item__title">MEDIA</p>
+                        </div>
+                        <div class="s07__item__subtitle">
+                            <p>HEALING HAUS</p>
+                            <p>WOODIN HAUS</p>
+                        </div>
+                        <div>
+                            <!-- <div class="s07__txtProgress">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div> -->
+                            <div class="s07__txtController">
+                                <a href="#"
+                                    ><img src="./assets/images/main/main_prev.png" alt="텍스트 슬라이드 이전 버튼"
+                                /></a>
+                                <span></span>
+                                <a href="#"
+                                    ><img src="./assets/images/main/main_next.png" alt="텍스트 슬라이드 다음 버튼"
+                                /></a>
+                            </div>
+                        </div>
+                        <div class="s07__textbox">
+                            <p class="s07__text active">공간의 가치를 열다 | 30초</p>
+                            <p class="s07__text">Rethink DOOR 역사론편</p>
+                            <p class="s07__text">Rethink DOOR 생활론편</p>
+                            <p class="s07__text">Rethink DOOR 역할론편</p>
+                            <p class="s07__text">Rethink DOOR 가족편</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p>시그니처 도어</p>
-          </div>
-          <div class="s5__item">
-            <div>
-              <img
-                src="./assets/images/main/s5_ thembaBoard.jpg"
-                alt="템바보드 이미지"
-              />
+        </section>
+        <section>
+            <div id="section08" class="wrap">
+                <div class="s08__title">INSTAGRAM</div>
+                <div class="s08__subtitle">
+                    <div>FOLLOW US ON IMSTAGRAN</div>
+                    <span class="insta__icon"></span>
+                </div>
+                <div class="insta__ad">
+                    <div class="on"></div>
+                    <div></div>
+                    <div class="on"></div>
+                    <div></div>
+                    <div class="on"></div>
+                    <div></div>
+                    <div class="on"></div>
+                </div>
             </div>
-            <p>템바보드</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="s06_wrap">
-      <div id="section06" class="wrap">
-        <div class="section06__itembox01">
-          <div>
-            <p class="s06__title">BRAND</p>
-          </div>
-          <div>
-            <p class="s06__subtitle">BE GREEN, BE HEALING LIFE</p>
-          </div>
-          <div class="brand">
-            <div class="s06__item">
-              <!-- <img src="" alt="" /> -->
-              <p class="s06__item__title">40년 목재 역사</p>
-              <div class="s06__item__subtitle">
-                <p>Since 1982</p>
-                <p>특수목 전문 기업</p>
-              </div>
-            </div>
-            <div class="s06__item">
-              <!-- <img src="" alt="" /> -->
-              <p class="s06__item__title">친환경 자재 사용</p>
-              <div class="s06__item__subtitle">
-                <p>자연과 가까운</p>
-                <p>친환경 제품 사용</p>
-              </div>
-            </div>
-            <div class="s06__item">
-              <!-- <img src="" alt="" /> -->
-              <p class="s06__item__title">고객 만족 제일주의</p>
-              <div class="s06__item__subtitle">
-                <p>세계의 다양한 목재를 연구, 개발</p>
-                <p>합리적 가격의 제품을 생산</p>
-              </div>
-            </div>
-            <div class="s06__item">
-              <!-- <img src="" alt="" /> -->
-              <p class="s06__item__title">감각적 디자인</p>
-              <div class="s06__item__subtitle">
-                <p>다양한 디자인의 제품으로</p>
-                <p>색다른 인테리어 연출</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section><div id="section07" class="wrap"></div></section>
-    <section><div id="section08" class="wrap"></div></section>
-    <footer></footer>
-    <script src="./main.js"></script>
-  </body>
+        </section>
+        <footer></footer>
+        <script src="./main.js"></script>
+    </body>
 </html>

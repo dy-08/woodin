@@ -50,26 +50,101 @@ function scrollEvent() {
   }
 
   const section03 = document.getElementById('section03');
-  if (wsy >= section02.offsetTop - 82 && wsy < section03.offsetTop - 82) {
-    document.querySelector('.s02__rtol').classList.add('active');
-    // document.querySelector('.s10').classList.add('active');
-    document.querySelectorAll('.s02__btot').forEach((item, index) => {
-      item.style.opacity = '1';
-      item.style.transform = `translateY(0)`;
-      item.style.transitionDelay = `0.${index + 1}s`;
-    });
-  } else {
-    document.querySelector('.s02__rtol').classList.remove('active');
-    document.querySelectorAll('.s02__btot').forEach((item, index) => {
-      item.style.opacity = '0';
-      item.style.transform = `translateY(30px)`;
-      item.style.transitionDelay = '0s';
-    });
-  }
-
+  const section04 = document.getElementById('section04');
+  const inS02 =
+    wsy >= section02.offsetTop - 82 && wsy < section03.offsetTop - 82;
+  const inS03 =
+    wsy >= section03.offsetTop - 82 && wsy < section04.offsetTop - 82;
   const s04 = document.getElementById('section04').offsetTop;
   const inS04 = wsy >= s04 - 82 && wsy < 3503;
-  // const header = document.getElementById('head');
+  const s06 = document.getElementById('s06_wrap').offsetTop;
+  const inS05 = wsy >= 3504 && wsy < s06 - 82;
+  const inS06 = wsy > s06 && wsy < 5256;
+  const s07 = document.getElementById('section07').offsetTop;
+  const s08 = document.getElementById('section08').offsetTop;
+  const inS07 = wsy >= s07 - 115 && wsy < s08 - 82;
+  const inS08 = wsy >= s08 - 82;
+
+  // 텍스트이벤트
+  if (inS02) {
+    document
+      .querySelectorAll('.s2btot')
+      .forEach((item) => item.classList.add('s2--activey'));
+    document.querySelector('.s2rtol').classList.add('s2--activex');
+  } else {
+    document
+      .querySelectorAll('.s2btot')
+      .forEach((item) => item.classList.remove('s2--activey'));
+    document.querySelector('.s2rtol').classList.remove('s2--activex');
+  }
+  if (inS03) {
+    document
+      .querySelectorAll('.s3btot')
+      .forEach((item) => item.classList.add('s3--activey'));
+    document.querySelector('.s3rtol').classList.add('s3--activex');
+  } else {
+    document
+      .querySelectorAll('.s3btot')
+      .forEach((item) => item.classList.remove('s3--activey'));
+    document.querySelector('.s3rtol').classList.remove('s3--activex');
+  }
+  if (inS04) {
+    document
+      .querySelectorAll('.s4btot')
+      .forEach((item) => item.classList.add('s4--activey'));
+    document.querySelector('.s4rtol').classList.add('s4--activex');
+  } else {
+    document
+      .querySelectorAll('.s4btot')
+      .forEach((item) => item.classList.remove('s4--activey'));
+    document.querySelector('.s4rtol').classList.remove('s4--activex');
+  }
+  if (inS05) {
+    document
+      .querySelectorAll('.s5btot')
+      .forEach((item) => item.classList.add('s5--activey'));
+    document.querySelector('.s5rtol').classList.add('s5--activex');
+  } else {
+    document
+      .querySelectorAll('.s5btot')
+      .forEach((item) => item.classList.remove('s5--activey'));
+    document.querySelector('.s5rtol').classList.remove('s5--activex');
+  }
+  if (inS06) {
+    document
+      .querySelectorAll('.s6btot')
+      .forEach((item) => item.classList.add('s6--activey'));
+    document.querySelector('.s6rtol').classList.add('s6--activex');
+  } else {
+    document
+      .querySelectorAll('.s6btot')
+      .forEach((item) => item.classList.remove('s6--activey'));
+    document.querySelector('.s6rtol').classList.remove('s6--activex');
+  }
+  if (inS07) {
+    document
+      .querySelectorAll('.s7btot')
+      .forEach((item) => item.classList.add('s7--activey'));
+    document.querySelector('.s7rtol').classList.add('s7--activex');
+    document.querySelector('.section07__itembox02').classList.add('w--active');
+  } else {
+    document
+      .querySelectorAll('.s7btot')
+      .forEach((item) => item.classList.remove('s7--activey'));
+    document.querySelector('.s7rtol').classList.remove('s7--activex');
+  }
+  if (inS08) {
+    document
+      .querySelectorAll('.s8btot')
+      .forEach((item) => item.classList.add('s8--activey'));
+    document.querySelector('.s8rtol').classList.add('s8--activex');
+  } else {
+    document
+      .querySelectorAll('.s8btot')
+      .forEach((item) => item.classList.remove('s8--activey'));
+    document.querySelector('.s8rtol').classList.remove('s8--activex');
+  }
+
   const headerImgLogo = document.querySelector('.header__logo');
   const naviItem = document.querySelectorAll('.navi__item');
   if (wsy >= s04 - 82 && wsy < 3503) {
@@ -80,8 +155,6 @@ function scrollEvent() {
     document.getElementById('section04').style.height = 'calc(91.5vh - 40px)';
   }
 
-  const s06 = document.getElementById('s06_wrap').offsetTop;
-  const inS06 = wsy > s06 && wsy < 5256;
   const span = document.querySelectorAll('.icon__menu');
 
   if (inS04 || inS06) {
